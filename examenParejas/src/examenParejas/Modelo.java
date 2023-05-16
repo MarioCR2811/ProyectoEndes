@@ -21,6 +21,17 @@ public class Modelo
 		gestoresParejas=new HashMap<Persona, TreeMap<Persona,Persona>> ();
 	}
     //
+	
+	/**
+	 *
+	 * 
+	 * @param nombre Es el nombre de la persona solicitante.
+	 * @param sexoSolicitante Indica el sexo de la persona solicitante.
+	 * @param sexoSolicitado Indica el sexo de la persona solicitada por la persona solicitante.
+	 * @param gestor Indica si la persona solicitante es ademas un gestor o no.
+	 * @param aficiones Contiene una lista de las aficiones de la persona solicitante.
+	 * @return Anyade a la persona solicitante si esta no existe ya, en caso de que existiese no se anyadiria.
+	 */
 	public int anyadeSolicitante(String nombre, Sexo sexoSolicitante, Sexo sexoSolicitado, boolean gestor,List<String> aficiones)
 	{	
 		
@@ -32,6 +43,12 @@ public class Modelo
 		
 	}
 	//
+	
+	/**
+	 * 
+	 * @return Devuelve un Set de personas que son gestoras.
+	 * 
+	 */
 	public Set<Persona> getListaGestores()
 	{
 		//Para obtener la lista de solicitantes gestores, creamos un Set, en este caso un hashset, que tiene que devolver
@@ -46,12 +63,24 @@ public class Modelo
 		return personasGestoras;
 	}
 	//
+	
+	/**
+	 * 
+	 * @return Devuelve un Set de las personas solicitantes.
+	 * 
+	 */
 	public Set<Persona> getListaSolicitantes()
 	{
 		return this.solicitantes;
 	}
 	
 	//
+	
+	/**
+	 * @param nombreSolicitante Es el nombre de la persona solicitante de la cual queremos saber que afinidades tiene con otros solicitantes compatibles.
+	 * @return Devuelve un lista de las personas afines a la persona cuyo nombre es el mismo que el pasado por parametro y cuales son las afinidades en comun entre ellos.
+	 * 
+	 */
 	public String getListadoAfinidades(String nombreSolicitante)
 	{
 		//Para saber las afinidades comunes de la persona pasada como parametro con el resto de solicitantes afines a sus preferencias, creamos el String que devolvera las aficiones
@@ -67,6 +96,14 @@ public class Modelo
         }
         return listadoPersonasAfines;
 	}
+	
+	/**
+	 * @param nombreGestor Es el nombre del gestor de la pareja.
+	 * @param nombreSolicitante Es el nombre de la persona solicitante.
+	 * @param nombrePareja Es el nombre de la persona que queremos que sea la pareja de la persona solicitante.
+	 * @return Nos indica si podemos incluir a esa pareja o no.
+	 * 
+	 */
 
 	public int creaPareja(String nombreGestor, String nombreSolicitante, String nombrePareja)
 	{	
@@ -91,6 +128,12 @@ public class Modelo
 		}
 		return puedoIncluirlo;
 	}
+	
+	/**
+	 * 
+	 * @return Nos devuelve un String  con todas las personas solicitantes listadas.
+	 * 
+	 */
 
 	public String getListadoSolicitantes()
 	{	
@@ -104,6 +147,12 @@ public class Modelo
 		
 		return listSol;
 	}
+	
+	/**
+	 * 
+	 * @return Devuelve un String con todas las parejas listadas y ordendas.
+	 * 
+	 */
 
 	public String getListadoParejas()
 	{	
@@ -127,6 +176,12 @@ public class Modelo
 	}
 	
 	//
+	
+	/**
+	 * @param nombreSolicitante Es el nombre de la persona solicitante de la cual queremos saber que afinidades tiene con otros solicitantes compatibles.
+	 * @return Devuelve un objeto tipo persona la cual tenga el nombre pasado como parametro.
+	 * 
+	 */
 	private Persona getPersonaSolicitantePorNombre(String nombreSolicitante) {
 		//Este metodo se usa para devolver el objeto tipo persona la cual tenga como nombre el nombre pasado como parametro, entonces
 		//recorremos todas las personas de los solicitantes, si el nombre de esa persona es igual que el nombre pasado como parametro, la persona
